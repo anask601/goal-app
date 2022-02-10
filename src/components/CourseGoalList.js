@@ -1,5 +1,6 @@
 import React from "react";
 import "./CourseGoalList.css";
+import "./Button.css";
 
 const CourseGoalList = ({ items, onDeleteItem }) => {
   // console.log(props);
@@ -8,9 +9,11 @@ const CourseGoalList = ({ items, onDeleteItem }) => {
     <>
       <ul className="goal-list">
         {items.map((goal) => (
-          <li key={goal.id}>
+          <li className="goal-item" key={goal.id}>
             {goal.text}
-            <button onClick={() => onDeleteItem(goal.id)}>Delete</button>
+            <button className="button-1" onClick={() => onDeleteItem(goal.id)}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>

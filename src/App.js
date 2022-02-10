@@ -10,6 +10,11 @@ const App = () => {
   const [courseGoals, setCourseGoals] = useState(dummyArr);
 
   const addGoalHandler = (enteredText) => {
+    if (enteredText.text === "") {
+      alert("📢 enter valid text");
+      return;
+    }
+    console.log(enteredText.text);
     setCourseGoals((preValue) => [...preValue, enteredText]);
   };
   const deleteHandlerApp = (goalId) =>
@@ -17,7 +22,7 @@ const App = () => {
   // console.log(courseGoals);
   return (
     <div>
-      <section id="goal-form">
+      <section id="goal-form" className="bg-red-800 ">
         <CourseInput onAddGoal={addGoalHandler} />
       </section>
       <section className="goals">
