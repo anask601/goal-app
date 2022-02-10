@@ -1,26 +1,29 @@
 import React, { useState } from "react";
 import "./CourseInput.css";
 
-const CourseInput = () => {
+const CourseInput = (props) => {
   const [enteredText, setEnteredText] = useState("");
   const changeText = (event) => {
     setEnteredText(event.target.value);
-    console.log(enteredText);
+    // console.log(enteredText);
   };
 
-  const onSumbitChange = (event) => {
+  const onSubmitChange = (event) => {
     event.preventDefault();
+    const usrInputs = { text: enteredText, id: Math.random().toString() };
+    // console.log(usrInputs);
+    props.onAddGoal(usrInputs);
+    // console.log(event);
   };
+
   return (
-    <div>
-      <form onSubmit={onSumbitChange}>
-        <div className="form-control">
-          <label>Course Goal</label>
-          <input type="text" onChange={changeText} />
-        </div>
-        {/* <Button type="submit">Add Goal</Button> */}
+    <>
+      <form onSubmit={onSubmitChange}>
+        <label>Course Goal</label>
+        <input type="text" onChange={changeText} />
+        <button type="submit">Add Goal</button>
       </form>
-    </div>
+    </>
   );
 };
 
