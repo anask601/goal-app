@@ -10,10 +10,10 @@ const App = () => {
   const [courseGoals, setCourseGoals] = useState(dummyArr);
 
   const addGoalHandler = (enteredText) => {
-    if (enteredText.text === "") {
-      alert("📢 enter valid text");
-      return;
-    }
+    // if (enteredText.text === "") {
+    //   alert("📢 enter valid text");
+    //   return;
+    // }
     console.log(enteredText.text);
     setCourseGoals((preValue) => [...preValue, enteredText]);
   };
